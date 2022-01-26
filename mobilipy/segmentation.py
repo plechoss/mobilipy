@@ -43,6 +43,7 @@ def _distance_between_two_coordinates(lat1_degrees, lon1_degrees, lat2_degrees, 
 def _create_route(df) -> pd.DataFrame:
     """
     Adds distance, time_delta, speed (m/s) and acceleration to the waypoints DataFrame
+
     Args:
         df (pandas.DataFrame): the waypoints DataFrame to be processed
     Returns:
@@ -87,6 +88,7 @@ def _create_route(df) -> pd.DataFrame:
 def _prepare_for_detection(df) -> pd.DataFrame:
     """
     Flags all detections as trips. By default, we are looking for activities so everything else is tagged as a trip.
+
     Args:
         df (pandas.DataFrame): Waypoints DataFrame to be flagged
     Returns:
@@ -99,7 +101,7 @@ def _activities_density(args) -> pd.DataFrame:
     """
     Args:
         df (pandas.DataFrame):
-        clusterer (???):
+        clusterer (sklearn.cluster):
     Returns:
         pandas.DataFrame:
     """
@@ -121,7 +123,7 @@ def _activities_density(args) -> pd.DataFrame:
     return df
 
 
-def _correct_clusters(df) -> pd.DataFrame:
+def _correct_clusters(df):
     """
     Args:
         df (pandas.DataFrame): DataFrame to be corrected, with 'detection', 'speed' and 'time_delta' columns
@@ -160,7 +162,7 @@ def segment(prepared_df, radius=0.025, min_samples=50, time_gap=850, use_multipr
         time_gap (float): Max time gap threshold for detected clusters
 
     Returns:
-        pandas.DataFrame: [description]
+        pandas.DataFrame: DataFrame with the segment starts and ends
     """
     
     route_user = _create_route(prepared_df)
