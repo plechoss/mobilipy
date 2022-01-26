@@ -9,9 +9,8 @@ TRANSFER = 60
 
 
 class GTFS_Helper:
-    lon_lat_step = 0.003
 
-    def __init__(self, directory, lon_lat_step=lon_lat_step):
+    def __init__(self, directory, lon_lat_step=0.003):
         self.stops = pd.read_csv(
             directory + "stops.txt").drop(['stop_url', 'location_type'], axis=1, errors='ignore')
         self.stops['bucket'] = list(zip(round(self.stops.stop_lon - (self.stops.stop_lon % lon_lat_step), 3),
