@@ -1,11 +1,11 @@
-"""Default timestamp column name"""
 TRACKED_AT = 'tracked_at'
-"""Default longitude column name"""
+"""Default timestamp column name"""
 LONGITUDE = 'longitude'
-"""Default latitude column name"""
+"""Default longitude column name"""
 LATITUDE = 'latitude'
-"""Default timezone for the WaypointsDataFrame"""
+"""Default latitude column name"""
 UTC = 'UTC'
+"""Default timezone for the WaypointsDataFrame"""
 
 ##############
 TRACK = "Track"
