@@ -1,8 +1,8 @@
-from mobilipy.poi_detection import detect_home_work
-from mobilipy.legs import get_user_legs
-from mobilipy.mode_detection import mode_detection
-from mobilipy.preparation import prepare
-from mobilipy.segmentation import segment
+from mobilipy import poi_detection
+from mobilipy import legs
+from mobilipy import mode_detection
+from mobilipy import preparation
+from mobilipy import segmentation
 
 import pandas as pd
 
@@ -16,10 +16,10 @@ def analyse(df, user_id) -> pd.DataFrame:
     Returns:
         pandas.DataFrame: DataFrame with selected user's legs
     """
-    df_prepared = prepare(df)
-    route_clusters_detected = segment(df_prepared)
-    route_clusters_detected = mode_detection(route_clusters_detected)
-    legs_user = get_user_legs(route_clusters_detected, user_id)
-    detect_home_work(legs_user, df_prepared)
+    df_prepared = preparation.prepare(df)
+    route_clusters_detected = segmentation.segment(df_prepared)
+    route_clusters_detected = mode_detection.mode_detection(route_clusters_detected)
+    legs_user = legs.get_user_legs(route_clusters_detected, user_id)
+    poi_detection.detect_home_work(legs_user, df_prepared)
         
     return legs_user

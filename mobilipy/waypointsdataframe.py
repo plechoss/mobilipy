@@ -3,8 +3,21 @@ from mobilipy import constants
 
 
 class WaypointsDataFrame(pd.DataFrame):
+    """Class that serves as an entry point for the mobilipy pipeline
+    """
     def __init__(self, data, tracked_at=constants.TRACKED_AT, longitude=constants.LONGITUDE,
                  latitude=constants.LATITUDE, user_id='user_id', crs={"init": "epsg:4326"}, timezone=constants.UTC):
+        """Initializes the WaypointsDataFrame
+
+        Args:
+            data (pandas.DataFrame): DataFrame with raw GPS data
+            tracked_at (str, optional): Name of the column containing the timestamp. Defaults to constants.TRACKED_AT.
+            longitude (str, optional): Name of the column containing the longitude. Defaults to constants.LONGITUDE.
+            latitude (str, optional): Name of the column containing the latitude. Defaults to constants.LATITUDE.
+            user_id (str, optional): Name of the column containing the user_id. Defaults to 'user_id'.
+            crs (dict, optional): Coordinate Reference System. Defaults to {"init": "epsg:4326"}.
+            timezone (str, optional): Timezone available in pytz. Defaults to constants.UTC.
+        """
 
         #self.crs = crs
         required_columns = ['tracked_at', 'longitude', 'latitude', 'user_id']
