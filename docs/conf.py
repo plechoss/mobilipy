@@ -13,7 +13,14 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-autodoc_mock_imports = ['more_itertools', 'DBSCAN', 'sklearn', 'shapely', 'movingpandas', 'matplotlib', 'scikit-mobility', 'haversine', 'skfuzzy', 'haversine', 'matplotlib', 'scipy', 'numba']
+#autodoc_mock_imports = ['more_itertools', 'DBSCAN', 'sklearn', 'shapely', 'movingpandas', 'matplotlib', 'scikit-mobility', 'haversine', 'skfuzzy', 'haversine', 'matplotlib', 'scipy', 'numba']
+
+from unittest import mock
+
+# Mock open3d because it fails to build in readthedocs
+MOCK_MODULES = ['more_itertools', 'DBSCAN', 'sklearn', 'shapely', 'movingpandas', 'matplotlib', 'scikit-mobility', 'haversine', 'skfuzzy', 'haversine', 'matplotlib', 'scipy', 'numba']
+for mod_name in MOCK_MODULES:
+    sys.modules[mod_name] = mock.Mock()
 
 
 # -- Project information -----------------------------------------------------
