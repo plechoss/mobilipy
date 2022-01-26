@@ -6,8 +6,7 @@ pd.options.mode.chained_assignment = None
 
 @njit
 def assign_cell(latitude, longitude, cell_size=0.2):
-    """`
-    Assigns a cell_number based on the cantor pairing function and discretization into 25km * 25km cells.
+    """Assigns a cell_number based on the cantor pairing function and discretization into 25km * 25km cells.
 
     Arguments:
         latitude (float): latitude in degrees.
@@ -86,8 +85,7 @@ def detect_home_work(legs, waypoints, cell_size=0.2):
 
 # Tags legs as home or work if they're close enough to either
 def _find_centroid(leg_index, legs, home_user, work_user):
-    """
-    Tags legs as home or work if they're close enough to either
+    """Tags legs as home or work if they're close enough to either
 
     Args:
         leg_index (int): index of the leg to be processed

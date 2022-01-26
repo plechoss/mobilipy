@@ -6,15 +6,13 @@ import pandas as pd
 pd.options.mode.chained_assignment = None
 
 def _detect_walks(args):
-    """ 
-    Tags the DataFrame at given indexes with 'walk' in the 'detection' column, for the points corresponding to walks
-    
+    """Tags the DataFrame at given indexes with 'walk' in the 'detection' column, for the points corresponding to walks
+
     Args:
-        df (pandas.DataFrame): DataFrame to be processed
-        walk_speed_th (float): the walk speed threshold
-        walk_acceleration_th (float): the walk acceleration threshold
-        minimal_walk_duration (float): threshold for walk duration
-        minimal_trip_duration (float): threshold for trip duration
+        args: df, walk_speed_th, walk_acceleration_th, minimal_walk_duration, minimal_trip_duration 
+
+    Returns:
+        pandas.DataFrame: Tagged DataFrame
     """
     df, walk_speed_th, walk_acceleration_th, minimal_walk_duration, minimal_trip_duration = args
     i = 0
@@ -67,8 +65,7 @@ def _detect_walks(args):
     return df
 
 def _detect_modes(df):
-    """
-    Detects all modes except for walks. Uses the fuzzy engine.
+    """Detects all modes except for walks. Uses the fuzzy engine.
 
     Args:
         df (pandas.DataFrame): DataFrame to be processed
@@ -202,8 +199,7 @@ def _detect_modes(df):
 
 
 def mode_detection(df, speed_th=2.78, acceleration_th=0.5, minimal_walking_duration=100, minimal_trip_duration=120, use_multiprocessing=True):
-    """
-    Tags the DataFrame at 'trip' indexes with detected modes in the 'detected_mode' column.
+    """Tags the DataFrame at 'trip' indexes with detected modes in the 'detected_mode' column.
 
     Args:
         df (pandas.DataFrame): DataFrame to be processed, coming from segmentation module

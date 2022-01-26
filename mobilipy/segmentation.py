@@ -8,8 +8,7 @@ pd.options.mode.chained_assignment = None
 
 @njit
 def _distance_between_two_coordinates(lat1_degrees, lon1_degrees, lat2_degrees, lon2_degrees) -> float:
-    """
-    Distance in meters between two points given in coordinates using the haversine distance.
+    """Distance in meters between two points given in coordinates using the haversine distance.
 
     Args:
         lat1_degrees (float): latitude of the first point in degrees.
@@ -41,11 +40,11 @@ def _distance_between_two_coordinates(lat1_degrees, lon1_degrees, lat2_degrees, 
     return distance * 1000
 
 def _create_route(df) -> pd.DataFrame:
-    """
-    Adds distance, time_delta, speed (m/s) and acceleration to the waypoints DataFrame
+    """Adds distance, time_delta, speed (m/s) and acceleration to the waypoints DataFrame
 
     Args:
         df (pandas.DataFrame): the waypoints DataFrame to be processed
+        
     Returns:
         pandas.DataFrame: waypoints DataFrame with additional statistics: distance, time_delta, speed (m/s) and acceleration
     """
@@ -86,8 +85,7 @@ def _create_route(df) -> pd.DataFrame:
 
 
 def _prepare_for_detection(df) -> pd.DataFrame:
-    """
-    Flags all detections as trips. By default, we are looking for activities so everything else is tagged as a trip.
+    """Flags all detections as trips. By default, we are looking for activities so everything else is tagged as a trip.
 
     Args:
         df (pandas.DataFrame): Waypoints DataFrame to be flagged
@@ -98,10 +96,12 @@ def _prepare_for_detection(df) -> pd.DataFrame:
     return df
 
 def _activities_density(args) -> pd.DataFrame:
-    """
+    """ Detects activities by density
+    
     Args:
-        df (pandas.DataFrame):
+        df (pandas.DataFrame): 
         clusterer (sklearn.cluster):
+
     Returns:
         pandas.DataFrame:
     """
@@ -124,7 +124,8 @@ def _activities_density(args) -> pd.DataFrame:
 
 
 def _correct_clusters(df):
-    """
+    """Corrects detected clusters by merging them using a window time and mean speed
+
     Args:
         df (pandas.DataFrame): DataFrame to be corrected, with 'detection', 'speed' and 'time_delta' columns
     """
