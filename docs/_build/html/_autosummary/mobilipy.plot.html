@@ -1,40 +1,71 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
-    <title>mobilipy.plot &#8212; mobilipy  documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mobilipy.plot &mdash; mobilipy  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mobilipy.poi_detection" href="mobilipy.poi_detection.html" />
-    <link rel="prev" title="mobilipy.mode_detection" href="mobilipy.mode_detection.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> mobilipy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">mobilipy.plot</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">mobilipy</a>
+      </nav>
 
-          <div class="body" role="main">
-            
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>mobilipy.plot</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/mobilipy.plot.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-mobilipy.plot">
-<span id="mobilipy-plot"></span><h1>mobilipy.plot<a class="headerlink" href="#module-mobilipy.plot" title="Permalink to this headline">¶</a></h1>
+<span id="mobilipy-plot"></span><h1>mobilipy.plot<a class="headerlink" href="#module-mobilipy.plot" title="Permalink to this headline"></a></h1>
 <p class="rubric">Functions</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -43,112 +74,212 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.get_leg_points" title="mobilipy.plot.get_leg_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_leg_points</span></code></a>(legs_from_waypoints, ...[, info])</p></td>
-<td><p>[summary]</p></td>
+<td><p>Returns a DataFrame with all the points belonging to the given leg.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.get_map_bounds" title="mobilipy.plot.get_map_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_map_bounds</span></code></a>(df)</p></td>
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_all" title="mobilipy.plot.plot_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_all</span></code></a>(legs_from_waypoints, waypoints)</p></td>
-<td><p></p></td>
+<td><p>Plots dirty waypoints, clean waypoints and resulting legs.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_daily_legs" title="mobilipy.plot.plot_daily_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_daily_legs</span></code></a>(legs_from_waypoints, ...[, ...])</p></td>
-<td><p>[summary]</p></td>
+<td><p>Plots all the legs for a given day</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_gps" title="mobilipy.plot.plot_gps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_gps</span></code></a>(df[, loc_map, type_, line])</p></td>
-<td><p>[summary]</p></td>
+<td><p>Plots supplied GPS points on a folium Map.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_leg" title="mobilipy.plot.plot_leg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_leg</span></code></a>(legs_from_waypoints, ...[, map_, ...])</p></td>
-<td><p>[summary]</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_leg" title="mobilipy.plot.plot_leg"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_leg</span></code></a>(legs_from_waypoints, ...[, map_, info])</p></td>
+<td><p>Plots a selected leg on a folium Map.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_legs" title="mobilipy.plot.plot_legs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_legs</span></code></a>(legs_from_waypoints, clean_waypoints)</p></td>
-<td><p></p></td>
+<td><p>Plots all the legs on a folium Map</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_solos" title="mobilipy.plot.plot_solos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_solos</span></code></a>(solos[, map_])</p></td>
-<td><p>Plots the solos DataFrame points Args:     <a href="#id1"><span class="problematic" id="id2">map_</span></a> ([type], optional): [description]. Defaults to None.</p></td>
+<td><p>Plots DataFrame points on a folium Map without connecting them with a line.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../mobilipy.html#mobilipy.plot.plot_waypoints" title="mobilipy.plot.plot_waypoints"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_waypoints</span></code></a>(waypoints[, clean_df, map_])</p></td>
-<td><p></p></td>
+<td><p>Plots waypoints on a folium Map.</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.get_leg_points">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">get_leg_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.get_leg_points" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a DataFrame with all the points belonging to the given leg.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>legs_from_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with legs, coming from legs.get_user_legs.</p></li>
+<li><p><strong>clean_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with latitude, longitude and tracked_at columns.</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index of the leg.</p></li>
+<li><p><strong>info</strong> (<em>bool</em><em>, </em><em>optional</em>) – Defines whether additional info about the leg should be returned. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>[pd.DataFrame]</em> – DataFrame with all the points belonging to the given leg</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_all">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waypoints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_all" title="Permalink to this definition"></a></dt>
+<dd><p>Plots dirty waypoints, clean waypoints and resulting legs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>legs_from_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with legs, coming from legs.get_user_legs.</p></li>
+<li><p><strong>waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with latitude, longitude and tracked_at columns.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>[folium.Map]</em> – Map with points from the DataFrames</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_daily_legs">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_daily_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_waypoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_waypoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_daily_legs" title="Permalink to this definition"></a></dt>
+<dd><p>Plots all the legs for a given day</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>legs_from_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with legs, coming from legs.get_user_legs.</p></li>
+<li><p><strong>waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with latitude, longitude and tracked_at columns.</p></li>
+<li><p><strong>day_num</strong> (<em>int</em>) – Index of the day</p></li>
+<li><p><strong>first</strong> (<em>int</em><em>, </em><em>optional</em>) – Index of the first leg to be plotted. Defaults to 0.</p></li>
+<li><p><strong>last</strong> (<em>int</em><em>, </em><em>optional</em>) – Index of the last leg to be plotted. Defaults to -1.</p></li>
+<li><p><strong>map</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Existing Map object to plot the points on. Defaults to None.</p></li>
+<li><p><strong>dirty_waypoints</strong> (<em>bool</em><em>, </em><em>optional</em>) – Specifies whether the supplied waypoints need cleaning. Defaults to False.</p></li>
+<li><p><strong>plot_waypoints</strong> (<em>bool</em><em>, </em><em>optional</em>) – Specifies whether waypoints should be plotted one by one. Defaults to False.</p></li>
+<li><p><strong>solos</strong> (<em>bool</em><em>, </em><em>optional</em>) – Specifies whether solo legs should be plotted. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>[folium.Map]</em> – Map with points from the DataFrames</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_gps">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_gps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transport'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_gps" title="Permalink to this definition"></a></dt>
+<dd><p>Plots supplied GPS points on a folium Map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – DataFrame with latitude, longitude and tracked_at columns.</p></li>
+<li><p><strong>loc_map</strong> (<em>folium.Map</em><em>, </em><em>optional</em>) – Existing Map object to plot the points on. Defaults to None.</p></li>
+<li><p><strong>type</strong> (<em>str</em><em>, </em><em>optional</em>) – Type of data, can TRANSPORT, ACTIVITY. Defaults to TRANSPORT.</p></li>
+<li><p><strong>line</strong> (<em>bool</em><em>, </em><em>optional</em>) – Specifies whether consecutive points should be connected by a line. Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>[folium.Map]</em> – Map with points from the DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_leg">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_leg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_leg" title="Permalink to this definition"></a></dt>
+<dd><p>Plots a selected leg on a folium Map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>legs_from_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with legs, coming from legs.get_user_legs.</p></li>
+<li><p><strong>clean_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with latitude, longitude and tracked_at columns.</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – Index of the leg.</p></li>
+<li><p><strong>map</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Existing Map object to plot the points on. Defaults to None.</p></li>
+<li><p><strong>info</strong> (<em>bool</em><em>, </em><em>optional</em>) – Defines whether additional info about the leg should be returned. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>[folium.Map]</em> – Map with points from the leg</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_legs">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_legs" title="Permalink to this definition"></a></dt>
+<dd><p>Plots all the legs on a folium Map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>legs_from_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with legs, coming from legs.get_user_legs.</p></li>
+<li><p><strong>clean_waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with latitude, longitude and tracked_at columns.</p></li>
+<li><p><strong>map</strong> (<em>[</em><em>type</em><em>]</em><em>, </em><em>optional</em>) – Existing Map object to plot the points on. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>[folium.Map]</em> – Map with points from the legs DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_solos">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_solos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_solos" title="Permalink to this definition"></a></dt>
+<dd><p>Plots DataFrame points on a folium Map without connecting them with a line.
+:param solos: DataFrame with latitude, longitude and tracked_at columns.
+:type solos: pd.DataFrame
+:param <a href="#id1"><span class="problematic" id="id2">map_</span></a>: Existing Map object to plot the points on. Defaults to None.
+:type <a href="#id3"><span class="problematic" id="id4">map_</span></a>: [type], optional</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><em>[folium.Map]</em> – Map with points from the DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_waypoints">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_waypoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_waypoints" title="Permalink to this definition"></a></dt>
+<dd><p>Plots waypoints on a folium Map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>waypoints</strong> (<em>pd.DataFrame</em>) – DataFrame with latitude, longitude and tracked_at columns.</p></li>
+<li><p><strong>clean_df</strong> (<em>bool</em><em>, </em><em>optional</em>) – Prepares waypoints before plotting if True. Defaults to True.</p></li>
+<li><p><strong>map</strong> (<em>folium.Map</em><em>, </em><em>optional</em>) – Existing Map object to plot the points on. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>[folium.Map]</em> – Map with points from the DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
+           </div>
           </div>
-          
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, plechoss.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">mobilipy</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.constants.html">mobilipy.constants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.gtfs_helper.html">mobilipy.gtfs_helper</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.legs.html">mobilipy.legs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.mode_detection.html">mobilipy.mode_detection</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">mobilipy.plot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.poi_detection.html">mobilipy.poi_detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.preparation.html">mobilipy.preparation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.privacy.html">mobilipy.privacy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.reva.html">mobilipy.reva</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.segmentation.html">mobilipy.segmentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mobilipy.waypointsdataframe.html">mobilipy.waypointsdataframe</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="mobilipy.mode_detection.html" title="previous chapter">mobilipy.mode_detection</a></li>
-      <li>Next: <a href="mobilipy.poi_detection.html" title="next chapter">mobilipy.poi_detection</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2022, plechoss.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.4.0</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="../_sources/_autosummary/mobilipy.plot.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

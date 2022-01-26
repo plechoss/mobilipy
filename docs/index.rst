@@ -10,20 +10,10 @@ Welcome to mobilipy's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-.. autosummary::
-   :toctree: _autosummary
+.. automodule:: mobilipy
 
-   mobilipy.constants
-   mobilipy.gtfs_helper
-   mobilipy.legs
-   mobilipy.mode_detection
-   mobilipy.plot
-   mobilipy.poi_detection
-   mobilipy.preparation
-   mobilipy.privacy
-   mobilipy.reva
-   mobilipy.segmentation
-   mobilipy.waypointsdataframe
+   Members
+   =======
 
 
 Indices and tables
