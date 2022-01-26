@@ -4,6 +4,14 @@ from mobilipy.preparation import prepare
 import pandas as pd
 
 def get_map_bounds(df):
+    """Finds the map bounding box for the given WaypointsDataFrame
+
+    Args:
+        df (pd.DataFrame): DataFrame with latitude and longitude columns
+
+    Returns:
+        ((float, float), (float, float)): Bounds as a 2x2 array, in the form of ((latitude_min, longitude_min), (latitude_max, longitude_max))
+    """
     bounds = [
       [df.latitude.min(), df.longitude.min()],
       [df.latitude.max(), df.longitude.max()]
@@ -27,7 +35,7 @@ def plot_gps(df, loc_map=None, type_=TRANSPORT, line=True):
         line (bool, optional): Specifies whether consecutive points should be connected by a line. Defaults to True.
 
     Returns:
-        [folium.Map]: Map with points from the DataFrame
+        folium.Map: Map with points from the DataFrame
     """
     #First, we set the bounds for the created map
     bounds = get_map_bounds(df)
@@ -59,7 +67,7 @@ def plot_waypoints(waypoints, clean_df=True, map_=None):
         map_ (folium.Map, optional): Existing Map object to plot the points on. Defaults to None.
 
     Returns:
-        [folium.Map]: Map with points from the DataFrame
+        folium.Map: Map with points from the DataFrame
     """
     if clean_df:
         return plot_gps(prepare(waypoints), loc_map=map_, type_=CLEAN, line=False)
@@ -73,7 +81,7 @@ def plot_solos(solos, map_=None):
         map_ ([type], optional): Existing Map object to plot the points on. Defaults to None.
 
     Returns:
-        [folium.Map]: Map with points from the DataFrame
+        folium.Map: Map with points from the DataFrame
     """
     return plot_gps(solos, loc_map=map_, type_=SOLO, line=False)
 
@@ -88,7 +96,7 @@ def get_leg_points(legs_from_waypoints, clean_waypoints, index, info=False):
         info (bool, optional): Defines whether additional info about the leg should be returned. Defaults to False.
 
     Returns:
-        [pd.DataFrame]: DataFrame with all the points belonging to the given leg
+        pd.DataFrame: DataFrame with all the points belonging to the given leg
     """
     legs = legs_from_waypoints
     start = legs.iloc[index, legs.columns.get_loc('started_at')]
@@ -123,7 +131,7 @@ def plot_leg(legs_from_waypoints, clean_waypoints, index, map_=None, info=False)
         info (bool, optional): Defines whether additional info about the leg should be returned. Defaults to False.
 
     Returns:
-        [folium.Map]: Map with points from the leg
+        folium.Map: Map with points from the leg
     """
     legs = legs_from_waypoints
     leg_ty = legs.iloc[index, legs.columns.get_loc('type')]
@@ -144,7 +152,7 @@ def plot_legs(legs_from_waypoints, clean_waypoints, map_=None):
         map_ ([type], optional): Existing Map object to plot the points on. Defaults to None.
 
     Returns:
-        [folium.Map]: Map with points from the legs DataFrame
+        folium.Map: Map with points from the legs DataFrame
     """
     df = pd.DataFrame()
     m = map_
@@ -173,7 +181,7 @@ def plot_daily_legs(legs_from_waypoints, waypoints, day_num, first_=0, last_=-1,
         solos (bool, optional): Specifies whether solo legs should be plotted. Defaults to False.
 
     Returns:
-        [folium.Map]: Map with points from the DataFrames
+        folium.Map: Map with points from the DataFrames
     """
     
     legs = legs_from_waypoints.reset_index(drop=True)
@@ -213,7 +221,7 @@ def plot_all(legs_from_waypoints, waypoints):
         waypoints (pd.DataFrame): DataFrame with latitude, longitude and tracked_at columns.
 
     Returns:
-        [folium.Map]: Map with points from the DataFrames
+        folium.Map: Map with points from the DataFrames
     """
     map_ = plot_waypoints(waypoints, clean_df=False)
     map_ = plot_waypoints(waypoints, map_=map_)

@@ -60,10 +60,15 @@ def _append_one_category(args):# -> list((str, str, str, str, str, str, MultiPoi
 
 
 def get_user_legs(df, user_id, use_multiprocessing=True) -> pd.DataFrame:
+    
     """
+    Builds the legs DataFrame for the given user.
+
     Args:
         df (pandas.DataFrame): waypoints DataFrame
         user_id (str): ID of the user whose legs are to be created
+        use_multiprocessing (bool, optional): Specifies whether the multiprocessing package should be used. Defaults to True.
+
     Returns:
         pandas.DataFrame: DataFrame of user's legs
     """

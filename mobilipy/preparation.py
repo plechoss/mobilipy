@@ -5,6 +5,7 @@ import numpy as np
 def prepare(df) -> pd.DataFrame:
     """
     Cleans a raw GPS points dataframe by filtering in the zurich area, rearranging features and applying gaussian smoothing.
+
     Args:
         df (pandas.DataFrame): DataFrame to be prepared for route processing
     Returns:
@@ -20,6 +21,7 @@ def prepare(df) -> pd.DataFrame:
 def _gaussian_smoothing(df, sigma=10) -> pd.DataFrame:
     """
     Applies Gaussian smoothing on the given waypoints DataFrame
+    
     Args:
         df (pandas.DataFrame): DataFrame with points to be smoothed
         sigma (float):

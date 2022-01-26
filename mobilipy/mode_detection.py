@@ -8,6 +8,7 @@ pd.options.mode.chained_assignment = None
 def _detect_walks(args):
     """ 
     Tags the DataFrame at given indexes with 'walk' in the 'detection' column, for the points corresponding to walks
+    
     Args:
         df (pandas.DataFrame): DataFrame to be processed
         walk_speed_th (float): the walk speed threshold
@@ -65,15 +66,18 @@ def _detect_walks(args):
             i += 1
     return df
 
-
 def _detect_modes(df):
-    """ 
-    Tags the DataFrame at given indexes with a list of possible modes of transport in the 'detected_mode' column. Uses a fuzzy logic engine.
+    """
+    Detects all modes except for walks. Uses the fuzzy engine.
+
     Args:
         df (pandas.DataFrame): DataFrame to be processed
+
     Returns:
-        df (pandas.DataFrame) the modified DataFrame
+        pandas.DataFrame: The modified DataFrame
     """
+    
+
     med_speed_verylow = [0, 0, 1.5, 2]
     med_speed_low = [1.5, 2, 4, 6]
     med_speed_medium = [5, 7, 11, 15]
@@ -198,14 +202,19 @@ def _detect_modes(df):
 
 
 def mode_detection(df, speed_th=2.78, acceleration_th=0.5, minimal_walking_duration=100, minimal_trip_duration=120, use_multiprocessing=True):
-    """ 
-    Tags the DataFrame at 'trip' indexes with detected modes in the 'detected_mode' column. Also tags walks with 'walk'.
+    """
+    Tags the DataFrame at 'trip' indexes with detected modes in the 'detected_mode' column.
+
     Args:
-        df (pandas.DataFrame): DataFrame to be processed
-        speed_th (float): the walk speed threshold
-        acceleration_th (float): the walk acceleration threshold
-        minimal_walking_duration (float): walk duration threshold
-        minimal_trip_duration (float): trip duration threshold
+        df (pandas.DataFrame): DataFrame to be processed, coming from segmentation module
+        speed_th (float, optional): The walk speed threshold. Defaults to 2.78.
+        acceleration_th (float, optional): The walk acceleration threshold. Defaults to 0.5.
+        minimal_walking_duration (int, optional): The walk duration threshold. Defaults to 100.
+        minimal_trip_duration (int, optional): The minimal trip duration threshold. Defaults to 120.
+        use_multiprocessing (bool, optional): Specifies whether the multiprocessing package should be used. Defaults to True.
+
+    Returns:
+        pandas.DataFrame: Segments DataFrame with modes of transport tagged in the mode_detected column.
     """
     df["detected_mode"] = np.nan
     user_trips = df[df.detection == "trip"].index.values

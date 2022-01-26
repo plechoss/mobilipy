@@ -8,7 +8,7 @@ pd.options.mode.chained_assignment = None
 def assign_cell(latitude, longitude, cell_size=0.2):
     """`
     Assigns a cell_number based on the cantor pairing function and discretization into 25km * 25km cells.
-    
+
     Arguments:
         latitude (float): latitude in degrees.
         longitude (float): longitude in degrees.
@@ -78,14 +78,14 @@ def detect_home_work(legs, waypoints, cell_size=0.2):
         user_activities = legs[legs.type == 'Stay']
 
         for index, row in user_activities.iterrows():
-            find_centroid(index, legs, home_user, work_user)
+            _find_centroid(index, legs, home_user, work_user)
         return home_user, work_user
     else:
         return None, None
 
 
 # Tags legs as home or work if they're close enough to either
-def find_centroid(leg_index, legs, home_user, work_user):
+def _find_centroid(leg_index, legs, home_user, work_user):
     """
     Tags legs as home or work if they're close enough to either
 
