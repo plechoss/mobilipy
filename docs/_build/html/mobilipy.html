@@ -15,7 +15,6 @@
     <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="mobilipy" href="modules.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -37,41 +36,478 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
 </section>
-<section id="mobilipy-constants-module">
-<h2>mobilipy.constants module<a class="headerlink" href="#mobilipy-constants-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.constants">
+<span id="mobilipy-constants-module"></span><h2>mobilipy.constants module<a class="headerlink" href="#module-mobilipy.constants" title="Permalink to this headline">¶</a></h2>
 </section>
-<section id="mobilipy-gtfs-helper-module">
-<h2>mobilipy.gtfs_helper module<a class="headerlink" href="#mobilipy-gtfs-helper-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.gtfs_helper">
+<span id="mobilipy-gtfs-helper-module"></span><h2>mobilipy.gtfs_helper module<a class="headerlink" href="#module-mobilipy.gtfs_helper" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mobilipy.gtfs_helper.GTFS_Helper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobilipy.gtfs_helper.</span></span><span class="sig-name descname"><span class="pre">GTFS_Helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_lat_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.003</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.gtfs_helper.GTFS_Helper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mobilipy.gtfs_helper.GTFS_Helper.get_coordinates">
+<span class="sig-name descname"><span class="pre">get_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.gtfs_helper.GTFS_Helper.get_coordinates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds coordinates of a stop with the given ID</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>stop_id (str): ID of the stop</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple[float, float]: Coordinates of the stop as (latitude, longitude)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobilipy.gtfs_helper.GTFS_Helper.get_n_closest_stops">
+<span class="sig-name descname"><span class="pre">get_n_closest_stops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">longitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_lat_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.003</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.gtfs_helper.GTFS_Helper.get_n_closest_stops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns n closest stops to the given location</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>longitude (float): Longitude as degrees
+latitude (float): Latitude as degrees
+n (int, optional): Number of stops to be returned. Defaults to 1.
+lon_lat_step (float, optional): Size of cells on map, in latitude/longitude degrees. Defaults to 0.003.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: DataFrame with information about n closest stops</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobilipy.gtfs_helper.GTFS_Helper.get_nearby_stops">
+<span class="sig-name descname"><span class="pre">get_nearby_stops</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">longitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon_lat_step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.003</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.gtfs_helper.GTFS_Helper.get_nearby_stops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds nearest stops to the given location. Uses a grid search, checking the cell of the location as well as all the ones around it.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>longitude (float): Longitude as degrees
+latitude (float): Latitude as degrees
+lon_lat_step (float, optional): Size of cells on map, in latitude/longitude degrees. Defaults to 0.003.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: DataFrame with info on all the nearest stops</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobilipy.gtfs_helper.GTFS_Helper.get_transfers">
+<span class="sig-name descname"><span class="pre">get_transfers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.gtfs_helper.GTFS_Helper.get_transfers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds possible transfers within the same parent station.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>pandas.DataFrame: DataFrame containing all the possible transfers in the dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mobilipy.gtfs_helper.GTFS_Helper.id_to_name">
+<span class="sig-name descname"><span class="pre">id_to_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop_id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#mobilipy.gtfs_helper.GTFS_Helper.id_to_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the name of the stop with the given ID</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>stop_id (str): ID of the stop</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: Name of the stop with the given ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="mobilipy.gtfs_helper.GTFS_Helper.lon_lat_step">
+<span class="sig-name descname"><span class="pre">lon_lat_step</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.003</span></em><a class="headerlink" href="#mobilipy.gtfs_helper.GTFS_Helper.lon_lat_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
-<section id="mobilipy-legs-module">
-<h2>mobilipy.legs module<a class="headerlink" href="#mobilipy-legs-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.legs">
+<span id="mobilipy-legs-module"></span><h2>mobilipy.legs module<a class="headerlink" href="#module-mobilipy.legs" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.legs.get_user_legs">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.legs.</span></span><span class="sig-name descname"><span class="pre">get_user_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiprocessing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.legs.get_user_legs" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Args:</dt><dd><p>df (pandas.DataFrame): waypoints DataFrame
+user_id (str): ID of the user whose legs are to be created</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: DataFrame of user’s legs</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="mobilipy-mode-detection-module">
-<h2>mobilipy.mode_detection module<a class="headerlink" href="#mobilipy-mode-detection-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.mode_detection">
+<span id="mobilipy-mode-detection-module"></span><h2>mobilipy.mode_detection module<a class="headerlink" href="#module-mobilipy.mode_detection" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.mode_detection.mode_detection">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.mode_detection.</span></span><span class="sig-name descname"><span class="pre">mode_detection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_th</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.78</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acceleration_th</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimal_walking_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimal_trip_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiprocessing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.mode_detection.mode_detection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tags the DataFrame at ‘trip’ indexes with detected modes in the ‘detected_mode’ column. Also tags walks with ‘walk’.
+Args:</p>
+<blockquote>
+<div><p>df (pandas.DataFrame): DataFrame to be processed
+speed_th (float): the walk speed threshold
+acceleration_th (float): the walk acceleration threshold
+minimal_walking_duration (float): walk duration threshold
+minimal_trip_duration (float): trip duration threshold</p>
+</div></blockquote>
+</dd></dl>
+
 </section>
-<section id="mobilipy-plot-module">
-<h2>mobilipy.plot module<a class="headerlink" href="#mobilipy-plot-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.plot">
+<span id="mobilipy-plot-module"></span><h2>mobilipy.plot module<a class="headerlink" href="#module-mobilipy.plot" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.get_leg_points">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">get_leg_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.get_leg_points" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>index ([type]): [description]
+info (bool, optional): [description]. Defaults to False.
+gt (bool, optional): [description]. Defaults to False.</p>
+</dd>
+<dt>Returns:</dt><dd><p>[type]: [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.get_map_bounds">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">get_map_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.get_map_bounds" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_all">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waypoints</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_all" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_daily_legs">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_daily_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_num</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dirty_waypoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_waypoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_daily_legs" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>day_num ([type]): [description]
+<a href="#id1"><span class="problematic" id="id2">first_</span></a> (int, optional): [description]. Defaults to 0.
+<a href="#id3"><span class="problematic" id="id4">last_</span></a> (int, optional): [description]. Defaults to -1.
+<a href="#id5"><span class="problematic" id="id6">map_</span></a> ([type], optional): [description]. Defaults to None.
+legs (bool, optional): [description]. Defaults to True.
+dirty_waypoints (bool, optional): [description]. Defaults to False.
+waypoints (bool, optional): [description]. Defaults to False.
+solos (bool, optional): [description]. Defaults to False.
+gt (bool, optional): [description]. Defaults to False.</p>
+</dd>
+<dt>Returns:</dt><dd><p>[type]: [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_gps">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_gps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'transport'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_gps" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df ([type]): [description]
+loc_map ([type], optional): [description]. Defaults to None.
+<a href="#id7"><span class="problematic" id="id8">type_</span></a> ([type], optional): [description]. Defaults to TRANSPORT.
+line (bool, optional): [description]. Defaults to True.</p>
+</dd>
+<dt>Returns:</dt><dd><p>[type]: [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_leg">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_leg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_leg" title="Permalink to this definition">¶</a></dt>
+<dd><p>[summary]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>index ([type]): [description]
+<a href="#id9"><span class="problematic" id="id10">map_</span></a> ([type], optional): [description]. Defaults to None.
+info (bool, optional): [description]. Defaults to False.
+gt (bool, optional): [description]. Defaults to False.</p>
+</dd>
+<dt>Returns:</dt><dd><p>[type]: [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_legs">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_legs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs_from_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_legs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_solos">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_solos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">solos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_solos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots the solos DataFrame points
+Args:</p>
+<blockquote>
+<div><p><a href="#id11"><span class="problematic" id="id12">map_</span></a> ([type], optional): [description]. Defaults to None.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>[type]: [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.plot.plot_waypoints">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.plot.</span></span><span class="sig-name descname"><span class="pre">plot_waypoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean_df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.plot.plot_waypoints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </section>
-<section id="mobilipy-poi-detection-module">
-<h2>mobilipy.poi_detection module<a class="headerlink" href="#mobilipy-poi-detection-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.poi_detection">
+<span id="mobilipy-poi-detection-module"></span><h2>mobilipy.poi_detection module<a class="headerlink" href="#module-mobilipy.poi_detection" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.poi_detection.assign_cell">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.poi_detection.</span></span><span class="sig-name descname"><span class="pre">assign_cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.poi_detection.assign_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>`
+Assigns a cell_number based on the cantor pairing function and discretization into 25km * 25km cells.
+Arguments:</p>
+<blockquote>
+<div><p>latitude (float): latitude in degrees.
+longitude (float): longitude in degrees.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>cell_number (int): Cell number based on the cantor pair function.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.poi_detection.detect_home_work">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.poi_detection.</span></span><span class="sig-name descname"><span class="pre">detect_home_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">legs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">waypoints</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.poi_detection.detect_home_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detects home and work locations, tags them with ‘Home’ or ‘Work’ in the df</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>legs (list()): list of legs
+waypoints (pandas.DataFrame): the waypoints DataFrame to be processed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.poi_detection.find_centroid">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.poi_detection.</span></span><span class="sig-name descname"><span class="pre">find_centroid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leg_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">home_user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">work_user</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.poi_detection.find_centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tags legs as home or work if they’re close enough to either
+Args:</p>
+<blockquote>
+<div><p>leg_index (int): index of the leg to be processed
+legs (list(???)): list of legs
+home_user ((latitude, longitude)): user’s home location
+work_user ((latitude, longitude)): user’s work location</p>
+</div></blockquote>
+</dd></dl>
+
 </section>
-<section id="mobilipy-preparation-module">
-<h2>mobilipy.preparation module<a class="headerlink" href="#mobilipy-preparation-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.preparation">
+<span id="mobilipy-preparation-module"></span><h2>mobilipy.preparation module<a class="headerlink" href="#module-mobilipy.preparation" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.preparation.prepare">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.preparation.</span></span><span class="sig-name descname"><span class="pre">prepare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.preparation.prepare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cleans a raw GPS points dataframe by filtering in the zurich area, rearranging features and applying gaussian smoothing.
+Args:</p>
+<blockquote>
+<div><p>df (pandas.DataFrame): DataFrame to be prepared for route processing</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>pandas.DataFrame: the preprocessed DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="mobilipy-privacy-module">
-<h2>mobilipy.privacy module<a class="headerlink" href="#mobilipy-privacy-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.privacy">
+<span id="mobilipy-privacy-module"></span><h2>mobilipy.privacy module<a class="headerlink" href="#module-mobilipy.privacy" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.add_noise">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">add_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.privacy.add_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds random uniform noise to the given point, in a radius = radius - offset</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>point (tuple): Points as a tuple (latitude, longitude) in degrees.
+radius (int, optional): Radius of the point neighbourhood. Defaults to 100.
+offset (int, optional): Offset from the perimeter of the neighbourhood circle, where the shifted point can’t be located. Defaults to 30.</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple: Shifted point expressed as (latitude, longitude)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.aggregate">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">aggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">waypoints_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">datetime.timedelta(seconds=900)</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.privacy.aggregate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Aggregates users in timedeltas and cells on the map. Returns a DataFrame with the count of users in a given timedelta and cell.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>waypoints_df (pandas.DataFrame): DataFrame with ‘latitude’, ‘longitude’, ‘user_id’ and ‘tracked_at’ columns.
+cell_size (float): Size of the square cells on the map, in kilometers.
+delta (datetime.timedelta): Frequency for the time aggregation, e.g. 15 minutes.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: DataFrame with ‘tracked_at’, ‘cell_latitude’, ‘cell_longitude’ and ‘count’ columns. The ‘cell_latitude’ and ‘cell_longitude’ columns give coordinates of the centers of cells on the map.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.assign_cell_center">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">assign_cell_center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.privacy.assign_cell_center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the closest cell center for the given coordinates, when the map is divided into a lattice with the supplied cell_size</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>latitude (float): Latitude as degrees
+longitude (float): Longitude as degrees
+cell_size (float): Cell size in kilometers</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple(float, float): Coordinates of the closest cell center on the map</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.dt_floor">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">dt_floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">datetime.datetime</span></span></span><a class="headerlink" href="#mobilipy.privacy.dt_floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs the floor operation on datetime values, with given timedelta as the base, e.g.  2021-01-01 12:21:47 with timedelta of 15s returns 2021-01-01 12:21:45.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>dt (datetime.datetime): Datetime value to be floored.
+delta (datetime.timedelta): Timedelta used for the floor operation.</p>
+</dd>
+<dt>Returns:</dt><dd><p>datetime.datetime: Floored datetime.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.get_obfuscation_utility">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">get_obfuscation_utility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w_prepared</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">legs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.privacy.get_obfuscation_utility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the ratio of legs affected by obfuscation to total legs</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>w_prepared (pandas.DataFrame): Smoothed and cleaned waypoints DataFrame
+legs (pandas.DataFrame): DataFrame that contains assembled legs
+cell_size (float, optional): Cell size in kilometers for the Cantor pairing function in POI detection. Defaults to 0.5.
+radius (int, optional): Obfuscation circle radius in meters. Defaults to 400.
+offset (int, optional): Offest for the obfuscation circle in meters. Defaults to 30.</p>
+</dd>
+<dt>Returns:</dt><dd><p>[float]: Ratio of legs affected by obfuscation to total legs</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.km_to_lat">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">km_to_lat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">km_north</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#mobilipy.privacy.km_to_lat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expresses latitude given in kilometers to the east in degrees</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>km_north (float): Latitude expressed in kilometers to the north</p>
+</dd>
+<dt>Returns:</dt><dd><p>float: Latitude in degrees</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.km_to_lon">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">km_to_lon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">km_east</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#mobilipy.privacy.km_to_lon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expresses given kilometers to the east in longitude degrees.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>km_east (float): Longitude expressed in km going east from longitude 0, at the given latitude
+latitude (float): Latitude in degrees</p>
+</dd>
+<dt>Returns:</dt><dd><p>float: Longitude in degrees</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.lat_to_km">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">lat_to_km</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#mobilipy.privacy.lat_to_km" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expresses given latitude in kilometers to the north</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>latitude (float): Latitude in degrees.</p>
+</dd>
+<dt>Returns:</dt><dd><p>float: Latitude expressed in kilometers to the north</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.lon_to_km">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">lon_to_km</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#mobilipy.privacy.lon_to_km" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expresses given longitude in kilometers to the east</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>latitude (float): Latitude expressed in degrees
+longitude (float): Longitude expressed in degrees</p>
+</dd>
+<dt>Returns:</dt><dd><p>float: Longitude as kilometers to the east</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.obfuscate">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">obfuscate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'remove'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.privacy.obfuscate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obfuscates the regions of points given in ‘locations’ parameter by either removing all the points in their proximity, or changing the location of these points to one, noisy location in the proximity circle.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pandas.DataFrame): DataFrame with ‘latitude’ and ‘longitude’ columns.
+locations (list): List of locations given as (latitude, longitude) tuples
+radius (int, optional): Radius of the obfuscation circle. Defaults to 100.
+offset (int, optional): Smallest distance from the perimeter of the obfuscation circle at which the location of interest must be located. Defaults to 30.
+mode (str, optional): Obfuscation mode, can be either ‘remove’ or ‘assign’. Defaults to ‘remove’.</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: DataFrame with obfuscated regions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.privacy.shift_point">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.privacy.</span></span><span class="sig-name descname"><span class="pre">shift_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude_shift_km</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude_shift_km</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.privacy.shift_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shifts the coordinates of a given point.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>point (tuple): Starting point as (latitude, longitude), in degrees
+latitude_shift_km (float): Latitude offset in kilometers
+longitude_shift_km (float): Longitude offset in kilometers</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple: Shifted point expressed as (latitude, longitude)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="mobilipy-reva-module">
-<h2>mobilipy.reva module<a class="headerlink" href="#mobilipy-reva-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.reva">
+<span id="mobilipy-reva-module"></span><h2>mobilipy.reva module<a class="headerlink" href="#module-mobilipy.reva" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.reva.analyse">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.reva.</span></span><span class="sig-name descname"><span class="pre">analyse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.reva.analyse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns complete trip information from a raw GPS waypoints DataFrame. Segments the data into trips, detects the mode of transport and tags the home and work locations.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pandas.DataFrame): waypoints DataFrame
+user_id (str): user’s ID</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: DataFrame with selected user’s legs</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="mobilipy-segmentation-module">
-<h2>mobilipy.segmentation module<a class="headerlink" href="#mobilipy-segmentation-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.segmentation">
+<span id="mobilipy-segmentation-module"></span><h2>mobilipy.segmentation module<a class="headerlink" href="#module-mobilipy.segmentation" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mobilipy.segmentation.segment">
+<span class="sig-prename descclassname"><span class="pre">mobilipy.segmentation.</span></span><span class="sig-name descname"><span class="pre">segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prepared_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_samples</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_gap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">850</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_multiprocessing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.core.frame.DataFrame</span></span></span><a class="headerlink" href="#mobilipy.segmentation.segment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds clusters of waypoints for legs</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>df (pandas.DataFrame): Waypoints DataFrame to be processed
+radius (float): Eps for DBSCAN
+min_samples (int): Minimum number of samples to be considered for
+time_gap (float): Max time gap threshold for detected clusters</p>
+</dd>
+<dt>Returns:</dt><dd><p>pandas.DataFrame: [description]</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="mobilipy-waypointsdataframe-module">
-<h2>mobilipy.waypointsdataframe module<a class="headerlink" href="#mobilipy-waypointsdataframe-module" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy.waypointsdataframe">
+<span id="mobilipy-waypointsdataframe-module"></span><h2>mobilipy.waypointsdataframe module<a class="headerlink" href="#module-mobilipy.waypointsdataframe" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mobilipy.waypointsdataframe.WaypointsDataFrame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mobilipy.waypointsdataframe.</span></span><span class="sig-name descname"><span class="pre">WaypointsDataFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tracked_at</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tracked_at'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'longitude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'latitude'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'user_id'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'init':</span> <span class="pre">'epsg:4326'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timezone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'UTC'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mobilipy.waypointsdataframe.WaypointsDataFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.core.frame.DataFrame</span></code></p>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<section id="module-mobilipy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-mobilipy" title="Permalink to this headline">¶</a></h2>
 </section>
 </section>
 
@@ -92,21 +528,24 @@
 
 
 <h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="modules.html">mobilipy</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">mobilipy package</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.constants.html">mobilipy.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.gtfs_helper.html">mobilipy.gtfs_helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.legs.html">mobilipy.legs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.mode_detection.html">mobilipy.mode_detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.plot.html">mobilipy.plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.poi_detection.html">mobilipy.poi_detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.preparation.html">mobilipy.preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.privacy.html">mobilipy.privacy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.reva.html">mobilipy.reva</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.segmentation.html">mobilipy.segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/mobilipy.waypointsdataframe.html">mobilipy.waypointsdataframe</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-  <li><a href="modules.html">mobilipy</a><ul>
-      <li>Previous: <a href="modules.html" title="previous chapter">mobilipy</a></li>
-  </ul></li>
   </ul></li>
 </ul>
 </div>
