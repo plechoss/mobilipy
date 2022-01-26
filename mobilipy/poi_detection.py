@@ -8,6 +8,7 @@ pd.options.mode.chained_assignment = None
 def assign_cell(latitude, longitude, cell_size=0.2):
     """`
     Assigns a cell_number based on the cantor pairing function and discretization into 25km * 25km cells.
+    
     Arguments:
         latitude (float): latitude in degrees.
         longitude (float): longitude in degrees.
@@ -28,7 +29,7 @@ def detect_home_work(legs, waypoints, cell_size=0.2):
     """Detects home and work locations, tags them with 'Home' or 'Work' in the df
 
     Args:
-        legs (list()): list of legs
+        legs (pd.DataFrame): legs DataFrame coming from the legs module
         waypoints (pandas.DataFrame): the waypoints DataFrame to be processed 
     """
     
@@ -87,11 +88,12 @@ def detect_home_work(legs, waypoints, cell_size=0.2):
 def find_centroid(leg_index, legs, home_user, work_user):
     """
     Tags legs as home or work if they're close enough to either
+
     Args:
         leg_index (int): index of the leg to be processed
-        legs (list(???)): list of legs
-        home_user ((latitude, longitude)): user's home location
-        work_user ((latitude, longitude)): user's work location
+        legs (pd.DataFrame): legs DataFrame, coming from the legs module
+        home_user ((float, float)): user's home location as (latitude, longitude)
+        work_user ((float, float)): user's work location as (latitude, longitude)
     """
     centroid = (legs.geometry[leg_index][0][0], legs.geometry[leg_index][0][1])
     if home_user is not None:
