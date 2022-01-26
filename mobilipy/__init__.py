@@ -1,1 +1,1 @@
-__version__ = "0.1.9"
+from mobilipy import constants, gtfs_helper, legs, mode_detection, plot, poi_detection, preparation, privacy, reva, segmentation, waypointsdataframe
