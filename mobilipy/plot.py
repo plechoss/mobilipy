@@ -76,9 +76,10 @@ def plot_waypoints(waypoints, clean_df=True, map_=None):
 
 def plot_solos(solos, map_=None):
     """Plots DataFrame points on a folium Map without connecting them with a line.
+
     Args:
         solos (pd.DataFrame): DataFrame with latitude, longitude and tracked_at columns.
-        map_ ([type], optional): Existing Map object to plot the points on. Defaults to None.
+        map_ (folium.Map, optional): Existing Map object to plot the points on. Defaults to None.
 
     Returns:
         folium.Map: Map with points from the DataFrame

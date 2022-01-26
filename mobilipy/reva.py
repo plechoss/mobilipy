@@ -10,7 +10,7 @@ def analyse(df, user_id) -> pd.DataFrame:
     """Returns complete trip information from a raw GPS waypoints DataFrame. Segments the data into trips, detects the mode of transport and tags the home and work locations.
 
     Args:
-        df (pandas.DataFrame): waypoints DataFrame
+        df (pandas.DataFrame): WaypointsDataFrame
         user_id (str): user's ID
 
     Returns:
