@@ -1,11 +1,7 @@
-numpy
-scipy
 pandas
 sklearn
 matplotlib
-numba
 folium
 haversine
 scikit-fuzzy
 scikit-mobility
-movingpandas

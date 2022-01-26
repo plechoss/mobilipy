@@ -13,7 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-autodock_mock_imports = ['more_itertools', 'shapely', 'movingpandas']
+autodock_mock_imports = ['more_itertools', 'shapely', 'movingpandas', 'matplotlib', 'scipy', 'numpy', 'numba']
 
 
 # -- Project information -----------------------------------------------------
