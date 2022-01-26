@@ -18,13 +18,15 @@ LEG_FEATURES = [
     "geometry",
 ]
 
-def _append_one_category(args):# -> list((str, str, str, str, str, str, MultiPoint)):
+def _append_one_category(args):
     """
+
     Args:
         indexes (list(str)): list of indexes in the df that have the given category_name
-        df (pandas.DataFrame): dataframe containing the waypoints
+        df (pandas.DataFrame): DataFrame containing the waypoints
         user_id (str): id of the user whose waypoints we're processing
         category_name (str): name of the category (Stay or Track)
+
     Returns:
         list((str, str, str, str, str, str, shapely.geometry.MultiPoint)): list of (user_id, started_at, finished_at, type_, detected_mode, purpose, geometry)
     """
