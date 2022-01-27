@@ -40,8 +40,8 @@ def _append_one_category(args):
     type_ = category_name
     if type_ == "Stay":
         points = MultiPoint(list(df.loc[df.index[indexes], ["latitude_start","longitude_start"]].values))
-        diameter = haversine((points.bounds[0], points.bounds[1]), (points.bounds[2], points.bounds[3])) * 1000
-        geometry = ((points.centroid.x, points.centroid.y), diameter)
+        #diameter = haversine((points.bounds[0], points.bounds[1]), (points.bounds[2], points.bounds[3])) * 1000
+        geometry = [(points.centroid.x, points.centroid.y)] #, diameter)
     else:
         geometry = list(df.loc[df.index[indexes],["latitude_start","longitude_start"]].values)
 

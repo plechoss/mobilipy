@@ -2,19 +2,21 @@ import pandas as pd
 import math
 import numpy as np
 
-def prepare(df) -> pd.DataFrame:
+def prepare(df, accuracy_th=1000, sigma=10) -> pd.DataFrame:
     """Cleans a raw GPS points dataframe by filtering in the zurich area, rearranging features and applying gaussian smoothing.
 
     Args:
         df (pandas.DataFrame): DataFrame to be prepared for route processing
+        accuracy_th (int, optional): Accuracy threshold for filtering. Defaults to 1000.
+        sigma (int, optional): Sigma for Gaussian smoothing, defines the size of smoothing window. Defaults to 10.
 
     Returns:
-        pandas.DataFrame: the preprocessed DataFrame
+        pd.DataFrame: [description]
     """
     res = df
     if('accuracy' in df.columns):
-        res = res[res.accuracy < 1000]
-    res = _gaussian_smoothing(res)
+        res = res[res.accuracy < accuracy_th]
+    res = _gaussian_smoothing(res, sigma)
     res = res.drop(columns='index', errors='ignore')
     return res
 
