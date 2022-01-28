@@ -4,6 +4,9 @@
 
 For more information refer to [the official documentation](https://mobilipy.readthedocs.io/en/latest/mobilipy.html#mobilipy-package).
 
+# Demo app
+A simple demo app developed with Streamlit is available at [this link](https://share.streamlit.io/plechoss/mobility/main/app.py).
+
 ## Installation
 ```python
 pip install mobilipy
