@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.1.9' 
+VERSION = '0.1.11' 
 DESCRIPTION = 'A mobility analysis package developed at the Swiss Data Science Center'
 
 with open("README.md", "r", encoding="utf-8") as fh:
